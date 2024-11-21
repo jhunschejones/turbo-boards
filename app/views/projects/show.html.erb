@@ -1,21 +1,22 @@
 <div>
   <h1 class="font-bold text-4xl mb-4"><%= @project.title %></h1>
 
-  <div class="columns-<%= @columns.size %> w-full h-screen flex" data-controller="sortable">
+  <ol class="list-none columns-<%= @columns.size %> w-full h-screen flex" data-controller="sortable" >
     <% @columns.each do |column| %>
-      <div class="w-full" data-controller="sortable" data-sortable-group-value="tasks" data-sortable-column-id="<%= column.id %>">
+      <li class="w-full" data-controller="sortable" data-sortable-column-id="<%= column.id %>">
         <h2 class="font-bold"><%= column.title %></h2>
-        <ol class="list-none -ml-3" data-controller="sortable">
+        <ol class="list-none -ml-3" data-controller="sortable" data-sortable-group-value="tasks">
           <% column.tasks.rank(:row_order).each do |task| %>
             <li
               class="outline outline-slate-400 rounded-sm m-3 p-2"
               data-controller="sortable"
+              data-sortable-update-url="<%= sort_project_column_task_path(@project, column, task) %>"
             >
               <%= task.title %>
             </li>
           <% end %>
         </ol>
-      </div>
+      </li>
     <% end %>
-  </div>
+  </ol>
 </div>
