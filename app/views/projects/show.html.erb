@@ -1,14 +1,25 @@
 <div>
   <h1 class="font-bold text-4xl mb-4"><%= @project.title %></h1>
 
-  <ol class="list-none columns-<%= @columns.size %> w-full h-screen flex" data-controller="sortable" >
+  <div
+    class="columns-<%= @columns.size %> gap-4 w-full h-screen flex"
+    data-controller="sortable"
+  >
     <% @columns.each do |column| %>
-      <li class="w-full" data-controller="sortable" data-sortable-column-id="<%= column.id %>">
-        <h2 class="font-bold"><%= column.title %></h2>
-        <ol class="list-none -ml-3" data-controller="sortable" data-sortable-group-value="tasks">
+      <div
+        class="w-full"
+        data-sortable-update-url="<%= sort_project_column_path(@project, column) %>"
+      >
+        <h2 class="font-bold cursor-pointer"><%= column.title %>&colon;</h2>
+        <ol
+          class="list-none"
+          data-controller="sortable"
+          data-sortable-group-value="tasks"
+          data-sortable-column-id="<%= column.id %>"
+        >
           <% column.tasks.rank(:row_order).each do |task| %>
             <li
-              class="outline outline-slate-400 rounded-sm m-3 p-2"
+              class="outline outline-slate-400 rounded-sm p-2 my-2 cursor-pointer"
               data-controller="sortable"
               data-sortable-update-url="<%= sort_project_column_task_path(@project, column, task) %>"
             >
@@ -16,7 +27,7 @@
             </li>
           <% end %>
         </ol>
-      </li>
+      </div>
     <% end %>
-  </ol>
+  </div>
 </div>

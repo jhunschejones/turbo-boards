@@ -19,5 +19,7 @@ done = Column.create!(project:, title: 'Done')
 Task.destroy_all
 Task.create!(project:, column: up_next, title: "Do the laundry")
 Task.create!(project:, column: up_next, title: "Shop for supper")
+Task.create!(project:, column: up_next, title: "Take the JLPT")
+Task.create!(project:, column: up_next, title: "Buy plane ticket home")
 Task.create!(project:, column: in_progress, title: "Write turbo-boards POC")
 Task.create!(project:, column: done, title: "Catch every possible winter cold")
