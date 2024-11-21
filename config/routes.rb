@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  resources :projects, only: :show do
-    resources :tasks, only: :update
+  get 'column/sort'
+  resources :projects, only: [:show] do
+    resources :columns, only: [] do
+      member do
+        put :sort
+      end
+      resources :tasks, only: [] do
+        member do
+          put :sort
+        end
+      end
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
