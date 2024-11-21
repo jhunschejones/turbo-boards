@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Starting from:
+* https://www.youtube.com/watch?v=OZWhN4Gtjos
+* https://maful.web.id/posts/build-drag-and-drop-with-rails-hotwire/

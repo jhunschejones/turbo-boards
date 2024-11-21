@@ -4,6 +4,20 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
+#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_title|
+#     MovieGenre.find_or_create_by!(title: genre_title)
 #   end
+
+Project.destroy_all
+project = Project.create!(title: 'My Project')
+
+Column.destroy_all
+up_next = Column.create!(project:, title: 'Up next')
+in_progress = Column.create!(project:, title: 'In progress')
+done = Column.create!(project:, title: 'Done')
+
+Task.destroy_all
+Task.create!(project:, column: up_next, title: "Do the laundry")
+Task.create!(project:, column: up_next, title: "Shop for supper")
+Task.create!(project:, column: in_progress, title: "Write turbo-boards POC")
+Task.create!(project:, column: done, title: "Catch every possible winter cold")
