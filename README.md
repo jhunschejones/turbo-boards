@@ -25,5 +25,5 @@ Things you may want to cover:
 
 
 Starting from:
-* https://www.youtube.com/watch?v=OZWhN4Gtjos
+* https://www.youtube.com/watch?v=OZWhN4Gtjos 15:27
 * https://maful.web.id/posts/build-drag-and-drop-with-rails-hotwire/

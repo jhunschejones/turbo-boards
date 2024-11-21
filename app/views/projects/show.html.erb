@@ -6,7 +6,7 @@
       <div class="w-full" data-controller="sortable" data-sortable-group-value="tasks" data-sortable-column-id="<%= column.id %>">
         <h2 class="font-bold"><%= column.title %></h2>
         <ol class="list-none -ml-3" data-controller="sortable">
-          <% column.tasks.each do |task| %>
+          <% column.tasks.rank(:row_order).each do |task| %>
             <li
               class="outline outline-slate-400 rounded-sm m-3 p-2"
               data-controller="sortable"
